@@ -23,11 +23,11 @@ def scrapper(a):
     print("price:",priceN.text)
     try:
         pr = '/html/body/div[14]/div/main/section/div[3]/section/div/div/div[7]/div[2]/section/div[1]/div[{}]/div/div/li/div/article[2]/span[2]'.format(a+1)
-        priceN = driver.find_element_by_xpath(pr)
-        print("price:",priceN.text)
+        priceNe = driver.find_element_by_xpath(pr)
+        print("price old:",priceNe.text)
         pf = '/html/body/div[14]/div/main/section/div[3]/section/div/div/div[7]/div[2]/section/div[1]/div[{}]/div/div/li/div/article[2]/span[3]'.format(a+1)
-        priceWR = driver.find_element_by_xpath(pf)
-        print("Offer price",priceWR.text)
+        priceN = driver.find_element_by_xpath(pf)
+        print("Offer price",priceN.text)
     except selenium.common.exceptions.NoSuchElementException:
         pass
     papers.loc[len(papers)] = [shoes.get_attribute('alt'),likes.text,priceN.text, link.get_attribute('href')]
